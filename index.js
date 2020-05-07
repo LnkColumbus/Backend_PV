@@ -1,16 +1,12 @@
 const express = require('express');
-
 const app = express();
 
 const { config } = require('./config/index');
 const moviesApi = require('./routes/movies');
 
+app.use(express.json());
 moviesApi(app);
 
-app.get('/', function(req, res) {
-    res.send('Hello World');
-});
-
-app.listen(config.port, function() {
-    console.log(`Listening http://localhost:${config.port}`);
+app.listen(config.dbPort, function() {
+    console.log('Listening http://localhost: \x1b[32m%s\x1b[0m', `${config.dbPort}`);
 });
