@@ -70,12 +70,12 @@ function userMoviesApi(app) {
       const { userMovieId } = req.params;
 
       try {
-        const deleteUserMovieId = await userMoviesService.deleteUserMovie({
+        const deletedUserMovieId = await userMoviesService.deleteUserMovie({
           userMovieId,
         });
 
         res.status(200).json({
-          data: deleteUserMovieId,
+          data: deletedUserMovieId,
           message: 'user movie deleted',
         });
       } catch (error) {

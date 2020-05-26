@@ -1,4 +1,5 @@
 const express = require('express');
+const helmet = require('helmet');
 const app = express();
 
 const bodyParser = require('body-parser');
@@ -24,6 +25,7 @@ app.use(
 
 // body parser
 app.use(bodyParser.json());
+app.use(helmet());
 
 // routes
 authApi(app); // ruta de autenticacion
